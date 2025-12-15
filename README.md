@@ -1,4 +1,5 @@
 Laporan Praktikum Pengolahan Citra Digital (Computer Vision)
+---
 Repositori ini berisi Tugas 1 dan Tugas 2 pada mata kuliah Pengolahan Citra Digital (Computer Vision).
 Seluruh program dikembangkan menggunakan Python dan pustaka OpenCV, dengan fokus pada pemrosesan citra dan video secara real-time.
 
@@ -17,11 +18,12 @@ NumPy
 Instalasi dependensi dapat dilakukan dengan perintah:
 
 pip install opencv-python numpy
-
 .
 ├── Tugas1.py   # Program GUI Filter Citra
 ├── Tugas2.py   # Program Deteksi Multi-Warna
 └── README.md   # Dokumentasi proyek
+
+
 **Tugas 1: GUI Filter Citra**
 ---
 Nama File: Tugas1.py
