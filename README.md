@@ -1,58 +1,84 @@
-# Laporan Praktikum Pengolahan Citra Digital (Computer Vision)
+# 📷 Laporan Praktikum Pengolahan Citra Digital (Computer Vision)
 
-Repositori ini berisi kode sumber dan dokumentasi untuk **Tugas 1** dan **Tugas 2** sebagai bagian dari laporan praktikum Pengolahan Citra Digital. Proyek ini menggunakan Python dan pustaka OpenCV untuk manipulasi citra dan deteksi objek secara *real-time*.
-
-## Daftar Isi
-1. [Prasyarat](#prasyarat)
-2. [Tugas 1: GUI Filter Citra](#tugas-1-gui-filter-citra)
-3. [Tugas 2: Deteksi Multi-Warna](#tugas-2-deteksi-multi-warna)
-4. [Cara Menjalankan Program](#cara-menjalankan-program)
+Repositori ini berisi **Tugas 1** dan **Tugas 2** pada mata kuliah **Pengolahan Citra Digital (Computer Vision)**.  
+Seluruh program dikembangkan menggunakan **Python** dan pustaka **OpenCV**, dengan fokus pada pemrosesan citra dan video secara *real-time*.
 
 ---
 
-## Prasyarat
+## 📌 Daftar Isi
+1. [Prasyarat](#-prasyarat)
+2. [Struktur File](#-struktur-file)
+3. [Tugas 1: GUI Filter Citra](#-tugas-1-gui-filter-citra)
+4. [Tugas 2: Deteksi Multi-Warna](#-tugas-2-deteksi-multi-warna)
+5. [Cara Menjalankan Program](#-cara-menjalankan-program)
+6. [Catatan](#-catatan)
 
-Sebelum menjalankan program, pastikan pustaka berikut telah terinstal di lingkungan Python Anda:
+---
 
-* Python 3.x
-* OpenCV (`cv2`)
-* NumPy
+## 🔧 Prasyarat
+
+Sebelum menjalankan program, pastikan lingkungan Python telah memenuhi kebutuhan berikut:
+
+- Python **3.x**
+- OpenCV (`cv2`)
+- NumPy
 
 Instalasi dependensi dapat dilakukan dengan perintah:
 
-Tugas 1: GUI Filter Citra
-File: Tugas1.py
+```bash
+pip install opencv-python numpy
 
-Deskripsi
-Program ini merupakan aplikasi pengolahan citra real-time yang menyediakan antarmuka grafis (GUI) sederhana berupa tombol di layar untuk mengganti mode filter citra. Pengguna dapat berinteraksi menggunakan klik mouse pada tombol visual atau menggunakan tombol keyboard.
+.
+├── Tugas1.py   # Program GUI Filter Citra
+├── Tugas2.py   # Program Deteksi Multi-Warna
+└── README.md   # Dokumentasi proyek
 
-Fitur Utama
-Program ini memiliki 4 mode filter yang dapat dipilih:
 
-Normal ('0'): Menampilkan video asli dari webcam tanpa filter.
+🖼️ Tugas 1: GUI Filter Citra
 
-Avg Blur ('1'): Menggunakan Average Blurring dengan kernel ukuran 9x9 untuk menghaluskan citra.
+Nama File: Tugas1.py
 
-Gaussian ('2'): Mengimplementasikan Gaussian Blur menggunakan kernel 15x15 yang dikalkulasi secara manual (perkalian matriks kernel 1D).
+📖 Deskripsi
 
-Sharpen ('3'): Mempertajam citra menggunakan kernel konvolusi kustom [[0, -1, 0], [-1, 5, -1], [0, -1, 0]].
+Program ini merupakan aplikasi pengolahan citra real-time menggunakan webcam yang dilengkapi dengan antarmuka grafis (GUI) sederhana.
+Pengguna dapat mengganti mode filter citra melalui klik mouse pada tombol visual maupun menggunakan input keyboard.
 
-Cara Kerja
-Interaksi Mouse: Program mendeteksi klik kiri mouse. Jika koordinat klik berada di dalam area kotak tombol yang digambar, mode filter akan berubah.
+⭐ Fitur Utama
 
-Indikator Visual: Tombol mode yang aktif akan berubah warna menjadi hijau, sementara yang tidak aktif berwarna abu-abu. Teks status mode aktif juga ditampilkan di pojok kiri atas.
+Terdapat empat mode filter citra yang dapat dipilih, yaitu:
+
+Normal (0)
+Menampilkan video asli dari webcam tanpa proses filtering.
+
+Average Blur (1)
+Menggunakan metode Average Blurring dengan kernel berukuran 9×9 untuk menghaluskan citra.
+
+Gaussian Blur (2)
+Mengimplementasikan Gaussian Blur dengan kernel 15×15 yang dihitung secara manual menggunakan perkalian kernel 1D.
+
+Sharpen (3)
+Mempertajam citra menggunakan kernel konvolusi kustom:
+
+[ 0  -1   0 ]
+[ -1  5  -1 ]
+[ 0  -1   0 ]
 
 
 Tugas 2: Deteksi Multi-Warna
-File: Tugas2.py
 
-Deskripsi
-Program ini bertujuan untuk mendeteksi dan melacak objek berdasarkan warna tertentu menggunakan ruang warna HSV (Hue, Saturation, Value). Program akan menggambar Bounding Box (kotak pembatas) di sekitar objek yang terdeteksi.
+Nama File: Tugas2.py
 
-Fitur Utama
-Program dikonfigurasi untuk mendeteksi 4 warna sekaligus:
+📖 Deskripsi
 
-🔴 Merah (Menangani wrap-around hue pada rentang 0-10 dan 170-180).
+Program ini bertujuan untuk mendeteksi dan melacak objek berdasarkan warna tertentu secara real-time menggunakan ruang warna HSV (Hue, Saturation, Value).
+Objek yang terdeteksi akan ditandai dengan Bounding Box dan label warna.
+
+⭐ Fitur Utama
+
+Program dikonfigurasi untuk mendeteksi empat warna sekaligus, yaitu:
+
+🔴 Merah
+Menangani wrap-around hue pada rentang 0–10 dan 170–180
 
 🟢 Hijau
 
@@ -60,17 +86,30 @@ Program dikonfigurasi untuk mendeteksi 4 warna sekaligus:
 
 🟡 Kuning
 
-Cara Kerja
-Konversi Warna: Mengubah frame video dari BGR ke HSV.
+⚙️ Cara Kerja
 
-Masking: Membuat mask biner berdasarkan rentang warna lower dan upper yang telah ditentukan dalam konfigurasi colors_config.
+Konversi Warna
+Frame video dikonversi dari format BGR ke HSV.
 
-Morphological Operations: Menggunakan operasi Opening dan Closing dengan kernel 5x5 untuk menghilangkan noise (bintik-bintik kecil) pada hasil deteksi.
+Masking Warna
+Mask biner dibuat berdasarkan nilai lower dan upper HSV yang telah didefinisikan pada konfigurasi colors_config.
 
-Kontur & Bounding Box:
+Morphological Operations
 
-Mencari kontur dari area yang terdeteksi.
+Operasi Opening dan Closing
 
-Hanya mengambil kontur terbesar dengan luas area > 500 piksel untuk menghindari deteksi palsu.
+Menggunakan kernel berukuran 5×5
 
-Menggambar persegi panjang (rectangle) dan label nama warna pada frame output.
+Bertujuan untuk menghilangkan noise kecil pada hasil deteksi
+
+Kontur dan Bounding Box
+
+Mencari kontur dari area yang terdeteksi
+
+Hanya kontur terbesar dengan luas area > 500 piksel yang diproses
+
+Menggambar:
+
+Kotak pembatas (rectangle)
+
+Label nama warna pada frame output
