@@ -32,20 +32,18 @@ pip install opencv-python numpy
 ├── Tugas1.py   # Program GUI Filter Citra
 ├── Tugas2.py   # Program Deteksi Multi-Warna
 └── README.md   # Dokumentasi proyek
+```
 
-
-🖼️ Tugas 1: GUI Filter Citra
+** Tugas 1: GUI Filter Citra**
 
 Nama File: Tugas1.py
 
-📖 Deskripsi
+
 
 Program ini merupakan aplikasi pengolahan citra real-time menggunakan webcam yang dilengkapi dengan antarmuka grafis (GUI) sederhana.
 Pengguna dapat mengganti mode filter citra melalui klik mouse pada tombol visual maupun menggunakan input keyboard.
 
-⭐ Fitur Utama
-
-Terdapat empat mode filter citra yang dapat dipilih, yaitu:
+*Fitur Utama Terdapat empat mode filter citra yang dapat dipilih, yaitu:
 
 Normal (0)
 Menampilkan video asli dari webcam tanpa proses filtering.
@@ -64,16 +62,14 @@ Mempertajam citra menggunakan kernel konvolusi kustom:
 [ 0  -1   0 ]
 
 
-Tugas 2: Deteksi Multi-Warna
+**Tugas 2: Deteksi Multi-Warna**
 
 Nama File: Tugas2.py
-
-📖 Deskripsi
 
 Program ini bertujuan untuk mendeteksi dan melacak objek berdasarkan warna tertentu secara real-time menggunakan ruang warna HSV (Hue, Saturation, Value).
 Objek yang terdeteksi akan ditandai dengan Bounding Box dan label warna.
 
-⭐ Fitur Utama
+* Fitur Utama
 
 Program dikonfigurasi untuk mendeteksi empat warna sekaligus, yaitu:
 
